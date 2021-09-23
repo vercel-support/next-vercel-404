@@ -4,5 +4,5 @@ const path = require('path');
 module.exports = {
   i18n,
   reactStrictMode: true,
-  localePath: path.resolve('./locales'),
+  localePath: path.resolve('./public/locales'),
 };
