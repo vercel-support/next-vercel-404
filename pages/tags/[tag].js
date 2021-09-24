@@ -1,29 +1,18 @@
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
 const TagPage = () => {
-  const { t } = useTranslation('tags')
+  const { t } = useTranslation('tags');
 
-  return (
-    <>
-      {t('tags')}
-    </>
-  )
-}
+  return <>{t('tags')}</>;
+};
 
-export default TagPage
+export default TagPage;
 
-export const getStaticProps = async ({ locale }) => {
+export const getServerSideProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['tags']))
-    }
-  }
-}
-
-export const getStaticPaths = () => {
-  return {
-    paths: [],
-    fallback: 'blocking'
-  }
-}
+      ...(await serverSideTranslations(locale, ['tags'])),
+    },
+  };
+};
